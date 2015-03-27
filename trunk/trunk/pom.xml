@@ -3,7 +3,7 @@
 	
 	
 	<groupId>by.kanchanin.publications</groupId>
-	<artifactId>parent-project</artifactId>
+	<artifactId>my_project</artifactId>
 	<version>1.0.0</version>
 	
 	<packaging>pom</packaging>
@@ -109,6 +109,29 @@
 			<artifactId>junit</artifactId>
 			<version>4.12</version>
 		</dependency>
+		
+		<!-- Hibernate -->
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-core</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate</groupId>
+			<artifactId>hibernate-entitymanager</artifactId>
+			<version>${hibernate.version}</version>
+		</dependency>
+		<dependency>
+			<groupId>org.hibernate.javax.persistence</groupId>
+			<artifactId>hibernate-jpa-2.0-api</artifactId>
+			<version>1.0.0.Final</version>
+		</dependency>
+		<dependency>
+			<groupId>javax.inject</groupId>
+			<artifactId>javax.inject</artifactId>
+			<version>1</version>
+		</dependency>
+
 		<!-- Logging libraries -->
 		<dependency>
 			<groupId>org.apache.logging.log4j</groupId>

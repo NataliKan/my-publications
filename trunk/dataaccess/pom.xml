@@ -3,18 +3,23 @@
 	<modelVersion>4.0.0</modelVersion>
 	<parent>
 		<groupId>by.kanchanin.publications</groupId>
-		<artifactId>my_project</artifactId>
+		<artifactId>parent-project</artifactId>
 		<version>1.0.0</version>
 	</parent>
 
 	<artifactId>dataaccess</artifactId>
 
 	<packaging>jar</packaging>
+
+
+
 	<dependencies>
 		<dependency>
 			<groupId>by.kanchanin.publications</groupId>
 			<artifactId>datamodel</artifactId>
 		</dependency>
+
+
 		<dependency>
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-beans</artifactId>
@@ -27,6 +32,8 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-context-support</artifactId>
 		</dependency>
+
+
 		<dependency>
 			<groupId>javax.inject</groupId>
 			<artifactId>javax.inject</artifactId>

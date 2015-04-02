@@ -10,7 +10,7 @@ import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
 @Entity
-public class Publication {
+public class Periodical {
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

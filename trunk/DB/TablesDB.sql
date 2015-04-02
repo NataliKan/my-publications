@@ -9,7 +9,7 @@ CREATE TABLE periodicals.user_account
   CONSTRAINT user_unique UNIQUE ("e-mail")
 );
 
-СREATE TABLE periodicals.user_profile
+CREATE TABLE periodicals.user_profile
 (
   profile_id integer NOT NULL,
   adress character varying(200),
@@ -17,6 +17,7 @@ CREATE TABLE periodicals.user_account
   credit_card character varying(250)[],
   create_date date,
   user_id integer,
+  user_role smallint NOT NULL DEFAULT 0,
   CONSTRAINT profile_id PRIMARY KEY (profile_id),
   CONSTRAINT user_id FOREIGN KEY (user_id)
       REFERENCES periodicals.user_account (user_id) MATCH SIMPLE

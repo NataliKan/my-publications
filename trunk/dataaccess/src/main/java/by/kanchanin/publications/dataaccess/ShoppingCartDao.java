@@ -1,5 +1,7 @@
 package by.kanchanin.publications.dataaccess;
 
-public abstract class ShoppingCartDao {
+import by.kanchanin.publications.datamodel.ShoppingCart;
+
+public interface ShoppingCartDao extends AbstractDao<Long, ShoppingCart>{
 
 }

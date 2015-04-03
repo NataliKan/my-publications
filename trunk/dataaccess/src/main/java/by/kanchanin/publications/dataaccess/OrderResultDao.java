@@ -1,5 +1,8 @@
 package by.kanchanin.publications.dataaccess;
 
-public abstract class OrderResultDao {
+import by.kanchanin.publications.datamodel.OrderResult;
+
+
+public interface OrderResultDao extends AbstractDao<Long, OrderResult>{
 
 }

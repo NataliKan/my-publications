@@ -1,5 +1,7 @@
 package by.kanchanin.publications.dataaccess;
 
-public abstract class PaymentDao {
+import by.kanchanin.publications.datamodel.Payment;
+
+public interface PaymentDao extends AbstractDao<Long, Payment>{
 
 }

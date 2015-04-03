@@ -1,5 +1,7 @@
 package by.kanchanin.publications.dataaccess;
 
-public abstract class CompanyDao {
+import by.kanchanin.publications.datamodel.Company;
+
+public interface CompanyDao extends AbstractDao<Long, Company>{
 
 }

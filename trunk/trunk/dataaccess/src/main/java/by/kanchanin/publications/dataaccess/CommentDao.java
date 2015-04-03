@@ -1,5 +1,8 @@
 package by.kanchanin.publications.dataaccess;
 
-public abstract class CommentDao {
+import by.kanchanin.publications.datamodel.Comment;
+
+
+public interface CommentDao extends AbstractDao<Long, Comment>{
 
 }

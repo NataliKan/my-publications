@@ -1,5 +1,7 @@
 package by.kanchanin.publications.dataaccess;
 
-public abstract class UserProfileDao {
+import by.kanchanin.publications.datamodel.UserProfile;
+
+public interface UserProfileDao extends AbstractDao<Long, UserProfile>{
 
 }

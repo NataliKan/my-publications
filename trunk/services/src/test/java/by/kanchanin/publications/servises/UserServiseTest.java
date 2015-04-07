@@ -1,9 +1,8 @@
 package by.kanchanin.publications.servises;
 
-import java.util.Arrays;
 
 import javax.inject.Inject;
-import javax.persistence.PersistenceException;
+
 
 import org.junit.Assert;
 import org.junit.Test;
@@ -29,4 +28,17 @@ public class UserServiseTest extends AbstractServiceTest{
 	        Assert.assertNotNull(createdUser);
 	        // TODO check equals
 
+}
+
+		private UserAccount createUserAccount() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+
+		private UserProfile createUserProfile() {
+			// TODO Auto-generated method stub
+			return null;
+		}
+		
+		
 }

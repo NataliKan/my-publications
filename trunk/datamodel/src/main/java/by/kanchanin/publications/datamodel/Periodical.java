@@ -3,11 +3,16 @@ package by.kanchanin.publications.datamodel;
 import java.math.BigDecimal;
 import java.util.Date;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.MapsId;
+import javax.persistence.OneToOne;
+import javax.persistence.FetchType;
 
 @Entity
 public class Periodical {
@@ -15,6 +20,11 @@ public class Periodical {
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
+	
+	@MapsId
+	@OneToOne(fetch = FetchType.LAZY, cascade = { CascadeType.PERSIST, CascadeType.MERGE })
+	@JoinColumn(updatable = false, name = "id")
+	private Company company;
 	
 	@Column
     private String title;
@@ -82,5 +92,14 @@ public class Periodical {
 		public void setAvailable(Boolean available) {
 			this.available = available;
 		}
+		
+		public Company getCompany() {
+			return company;
+		}
 
+		public void setCompany(Company company) {
+			this.company = company;
+		}
+		
+		
 }

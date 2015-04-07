@@ -1,10 +1,14 @@
 package by.kanchanin.publications.datamodel;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Column;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.ManyToOne;
 
 @Entity
 public class Company {
@@ -15,6 +19,18 @@ public class Company {
 	    
 	    @Column
 	    private String companyName;
+	    
+	    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+	    @JoinColumn(name = "periodical_id", nullable = false)
+	    private Periodical periodical;
+	     
+	    public Periodical getPeriodical() {
+	        return periodical;
+	    }
+	     
+	    public void setPeriodical(Periodical periodical) {
+	        this.periodical = periodical;
+	    }
 	    
 	    public Long getId() {
 	        return id;

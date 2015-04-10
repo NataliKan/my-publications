@@ -12,4 +12,6 @@ public class CustomNamingStrategy extends ImprovedNamingStrategy {
 		return StringUtils.isNotEmpty(base) ? base + "_id" : base;
 	}
 
+	
+	
 }

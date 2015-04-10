@@ -6,19 +6,20 @@ import by.kanchanin.publications.datamodel.ShoppingCart;
 
 public interface ShoppingCartService {
 	
-	@Transactional
-	void createNewOrder(ShoppingCart shoppingCart);
 	
 	@Transactional
 	ShoppingCart get(Long id);
 	
 	@Transactional
-	void removeFromCart();
+	void addToCart(ShoppingCart cart);
 	
 	@Transactional
-	void updateShoppingCart();
+	void deleteFromCart(ShoppingCart cart);
 	
 	@Transactional
-	void removeAll(Long id);
+	void update(ShoppingCart cart);
+	
+	@Transactional
+	void deleteAll(Long id);
 
 }

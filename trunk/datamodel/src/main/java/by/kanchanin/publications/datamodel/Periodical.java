@@ -13,9 +13,10 @@ import javax.persistence.JoinColumn;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.FetchType;
+import by.kanchanin.publications.datamodel.AbstractEntity;
 
 @Entity
-public class Periodical {
+public class Periodical extends AbstractEntity{
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

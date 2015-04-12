@@ -14,12 +14,13 @@ import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 import javax.persistence.CascadeType;
 import javax.persistence.FetchType;
+import by.kanchanin.publications.datamodel.AbstractEntity;
 
 
 import by.kanchanin.publications.datamodel.enums.UserRole;
 
 @Entity
-public class UserProfile {
+public class UserProfile extends AbstractEntity{
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

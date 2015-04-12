@@ -5,9 +5,10 @@ import javax.persistence.Column;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
+import by.kanchanin.publications.datamodel.AbstractEntity;
 
 @Entity
-public class UserAccount {
+public class UserAccount extends AbstractEntity{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)

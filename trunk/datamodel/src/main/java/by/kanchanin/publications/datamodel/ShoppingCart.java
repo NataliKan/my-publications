@@ -11,8 +11,10 @@ import javax.persistence.CascadeType;
 import javax.persistence.MapsId;
 import javax.persistence.OneToOne;
 
+import by.kanchanin.publications.datamodel.AbstractEntity;
+
 @Entity
-public class ShoppingCart {
+public class ShoppingCart extends AbstractEntity{
 	
 	@Id
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -42,6 +44,12 @@ public class ShoppingCart {
 
 	public void setUserAccount(UserAccount userAccount) {
 		this.userAccount = userAccount;
+	}
+
+	@Override
+	public Long getId() {
+		// TODO Auto-generated method stub
+		return null;
 	}
 
 	

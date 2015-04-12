@@ -8,11 +8,12 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import by.kanchanin.publications.datamodel.AbstractEntity;
 import by.kanchanin.publications.datamodel.enums.OrderStatus;
 
 
 @Entity
-public class OrderResult {
+public class OrderResult extends AbstractEntity{
 	
 	 @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)

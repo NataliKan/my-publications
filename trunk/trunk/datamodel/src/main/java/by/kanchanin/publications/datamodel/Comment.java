@@ -10,8 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.FetchType;
 import javax.persistence.ManyToOne;
 
+import by.kanchanin.publications.datamodel.AbstractEntity;
+
 @Entity
-public class Comment {
+public class Comment  extends AbstractEntity{
 	
 	@Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)

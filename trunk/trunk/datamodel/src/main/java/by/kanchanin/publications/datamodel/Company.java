@@ -10,8 +10,10 @@ import javax.persistence.Id;
 import javax.persistence.JoinColumn;
 import javax.persistence.ManyToOne;
 
+import by.kanchanin.publications.datamodel.AbstractEntity;
+
 @Entity
-public class Company {
+public class Company extends AbstractEntity{
 	
 	    @Id
 	    @GeneratedValue(strategy = GenerationType.IDENTITY)

@@ -22,7 +22,7 @@ public interface PeriodicalDao extends AbstractDao<Long, Periodical>{
     
     List<Periodical> getAllPeriodicalByPerType(String perType);
 
-    void updatePeriodicalName(Long id, String newName);
+    void updatePeriodicalName(Long id, String newTitle);
 
 
 }

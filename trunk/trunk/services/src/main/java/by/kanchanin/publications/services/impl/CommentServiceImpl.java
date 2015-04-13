@@ -3,10 +3,9 @@ package by.kanchanin.publications.services.impl;
 import java.util.logging.Logger;
 
 import javax.inject.Inject;
-import javax.inject.Inject;
 
+import org.slf4j.LoggerFactory;
 import org.apache.commons.lang3.Validate;
-import org.hibernate.annotations.common.util.impl.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import by.kanchanin.publications.dataaccess.CommentDao;
@@ -21,7 +20,6 @@ public class CommentServiceImpl implements CommentService{
     private CommentDao commentDao;
 	
 	public  void createNewComment(Comment comment) {
-
         Validate.isTrue(comment.getId() == null, "This method should be called for 'not saved yet' profile only. Use UPDATE instead");
         commentDao.insert(comment);
     }

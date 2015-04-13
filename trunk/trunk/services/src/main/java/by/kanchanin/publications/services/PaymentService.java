@@ -19,7 +19,6 @@ public interface PaymentService {
     @Transactional
     void cancelPayment(Long id);
     
-    
     @Transactional
     void confirmPayment(Payment payment);
 }

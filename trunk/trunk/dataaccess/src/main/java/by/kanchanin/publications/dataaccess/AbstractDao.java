@@ -14,19 +14,18 @@ public interface AbstractDao<ID, Entity> {
 
 	void deleteAll();
 	
-	void confirm();
-
 	void delete(List<ID> ids);
 	
 	void add(List<ID> ids);
 	
 	void hideById(ID id);
 	
-	void cancel (ID id);
+	void cancel ();
 
 	List<Entity> getAllByFieldRestriction(final SingularAttribute<? super Entity, ?> attribute, final Object value);
 
 	Entity insert(Entity entity);
 
 	Entity update(Entity entity);
+	
 }

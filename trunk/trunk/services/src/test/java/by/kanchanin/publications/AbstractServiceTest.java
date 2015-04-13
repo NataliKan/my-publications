@@ -17,7 +17,7 @@ import org.springframework.test.context.junit4.SpringJUnit4ClassRunner;
 
 @RunWith(SpringJUnit4ClassRunner.class)
 @ContextConfiguration(locations = { "classpath:spring-context.xml" })
-public class AbstractServiceTest {
+public abstract class AbstractServiceTest {
 	
 	private final static Random random = new Random();
 	protected static final RandomData RANDOM_DATA = new RandomDataImpl();

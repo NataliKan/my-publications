@@ -3,6 +3,8 @@ package by.kanchanin.publications.services.impl;
 import javax.inject.Inject;
 
 import org.apache.commons.lang3.Validate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import by.kanchanin.publications.datamodel.Payment;
@@ -11,6 +13,7 @@ import by.kanchanin.publications.dataaccess.PaymentDao;
 
 	@Service
 	public class PaymentServiceImpl implements PaymentService {
+		private static final Logger LOGGER = LoggerFactory.getLogger(PaymentServiceImpl.class);
 	
 	@Inject
     private PaymentDao paymentDao;
@@ -20,7 +23,6 @@ import by.kanchanin.publications.dataaccess.PaymentDao;
 	        accountDao.insert(account);*/
 
 	        Validate.isTrue(payment.getId() == null, "This method should be called for 'not saved yet' profile only. Use UPDATE instead");
-	        payment.setPayment(payment);
 	        paymentDao.insert(payment);
 	    }
 	
@@ -32,13 +34,22 @@ import by.kanchanin.publications.dataaccess.PaymentDao;
 		paymentDao.update(payment);
 	}
 	
-	public void cancelPayment(Long id) {
-		paymentDao.cancel(id);
+	public void cancelPayment(Payment payment) {
+		LOGGER.debug("Cancel: {}", payment);
+		paymentDao.cancel();
 	}
 	
 	 public void confirmPayment(Payment payment){
-		 paymentDao.confirm();
+		 LOGGER.debug("Confirm: {}", payment);
+		 paymentDao.confirm(payment);
 	 }
+
+	@Override
+	public void cancelPayment(Long id) {
+		// TODO Auto-generated method stub
+		
+	}
+	 
 
 }
 

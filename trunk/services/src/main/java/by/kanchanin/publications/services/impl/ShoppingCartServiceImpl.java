@@ -1,20 +1,19 @@
 package by.kanchanin.publications.services.impl;
 
-import java.util.List;
-
 import javax.inject.Inject;
 
-import org.apache.commons.lang3.Validate;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Service;
 
 import by.kanchanin.publications.dataaccess.ShoppingCartDao;
 import by.kanchanin.publications.datamodel.ShoppingCart;
-import by.kanchanin.publications.datamodel.UserProfile;
 import by.kanchanin.publications.services.ShoppingCartService;
 
 
 @Service
 public class ShoppingCartServiceImpl {
+	 private static final Logger LOGGER = LoggerFactory.getLogger(ShoppingCartServiceImpl.class);
 	
 	@Inject
     private ShoppingCartDao cartDao;
@@ -23,12 +22,13 @@ public class ShoppingCartServiceImpl {
         return cartDao.getById(id);
     }
 	
-	public void addToCart(ShoppingCart cart) {
-		cartDao.add(ids);
+	public void addToCart(Long id) {
+		 LOGGER.debug("Item addet to cart");
+		cartDao.add(id);
 	}
 	
-	public void deleteFromCart(ShoppingCart cart) {
-		cartDao.delete();
+	public void deleteFromCart(Long id) {
+		cartDao.delete(id);
 	
 	}
 	

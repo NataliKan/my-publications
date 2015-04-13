@@ -19,7 +19,7 @@ public class UserServiceImpl implements UserService{
     @Inject
     private UserProfileDao profileDao;
 
-    
+    @Override
     public void createNewUser(UserProfile profile, UserAccount account) {
     /*    Validate.isTrue(account.getId() == null, "This method should be called for 'not saved yet' account only. Use UPDATE instead");
         accountDao.insert(account);*/
@@ -29,17 +29,17 @@ public class UserServiceImpl implements UserService{
         profileDao.insert(profile);
     }
 
-    
+    @Override
     public UserProfile get(Long id) {
         return profileDao.getById(id);
     }
 
-    
+    @Override
     public void updateProfile(UserProfile profile) {
         profileDao.update(profile);
     }
 
-    
+    @Override
     public void removeUser(Long id) {
 
         profileDao.delete(id);

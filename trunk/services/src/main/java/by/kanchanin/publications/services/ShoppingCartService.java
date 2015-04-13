@@ -11,7 +11,7 @@ public interface ShoppingCartService {
 	ShoppingCart get(Long id);
 	
 	@Transactional
-	void addToCart(ShoppingCart cart);
+	void addToCart(Long id);
 	
 	@Transactional
 	void deleteFromCart(ShoppingCart cart);

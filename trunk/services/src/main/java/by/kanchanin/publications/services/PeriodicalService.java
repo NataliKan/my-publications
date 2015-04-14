@@ -4,7 +4,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 import by.kanchanin.publications.datamodel.Periodical;
 
-public interface PeriodicalServise {
+public interface PeriodicalService {
 	
 	@Transactional
     void createNewPeriodical(Periodical periodical);
@@ -27,6 +27,8 @@ public interface PeriodicalServise {
     List<Periodical> getAllPeriodicalsByTitle(String title);
     
     List<Periodical> getAllPeriodicalByPerType(String perType);
+
+
 
 }
 

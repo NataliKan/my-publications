@@ -1,5 +1,7 @@
 package by.kanchanin.publications.servises;
 
-public class CompanyServiseTest {
+import by.kanchanin.publications.AbstractServiceTest;
+
+public class CompanyServiseTest extends AbstractServiceTest{
 
 }

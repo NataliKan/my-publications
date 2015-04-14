@@ -22,4 +22,8 @@ public interface ShoppingCartService {
 	@Transactional
 	void deleteAll(Long id);
 
+	void deleteAll();
+
+
+	
 }

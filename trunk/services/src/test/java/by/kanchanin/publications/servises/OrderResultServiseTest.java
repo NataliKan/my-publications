@@ -1,5 +1,7 @@
 package by.kanchanin.publications.servises;
 
-public class OrderResultServiseTest {
+import by.kanchanin.publications.AbstractServiceTest;
+
+public class OrderResultServiseTest extends AbstractServiceTest{
 
 }

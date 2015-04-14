@@ -15,7 +15,7 @@ public interface AbstractDao<ID, Entity> {
 	
 	void delete(List<ID> ids);
 	
-	void add(List<ID> ids);
+	void add(Long id);
 
 	Entity insert(Entity entity);
 

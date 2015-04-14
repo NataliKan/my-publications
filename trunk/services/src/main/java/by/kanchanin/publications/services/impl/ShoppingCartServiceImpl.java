@@ -8,7 +8,6 @@ import org.springframework.stereotype.Service;
 
 import by.kanchanin.publications.dataaccess.ShoppingCartDao;
 import by.kanchanin.publications.datamodel.ShoppingCart;
-import by.kanchanin.publications.services.ShoppingCartService;
 
 
 @Service
@@ -28,16 +27,20 @@ public class ShoppingCartServiceImpl {
 	}
 	
 	public void deleteFromCart(Long id) {
+		LOGGER.debug("Remove: {}", id);
 		cartDao.delete(id);
 	
 	}
 	
-	public void saveOrUpdate(ShoppingCart cart) {
+	public void Update(ShoppingCart cart) {
+		LOGGER.debug("Update: {}", cart);
 		cartDao.update(cart);
 	}
 	
-	public void deleteAll(Long id) {
-		cartDao.delete(id);
-	}
+	
+    public void deleteAll() {
+        LOGGER.debug("Remove all items");
+        cartDao.deleteAll();
+    }
 
 }

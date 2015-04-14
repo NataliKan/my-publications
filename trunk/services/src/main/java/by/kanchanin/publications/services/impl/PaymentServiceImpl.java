@@ -34,10 +34,6 @@ import by.kanchanin.publications.dataaccess.PaymentDao;
 		paymentDao.update(payment);
 	}
 	
-	public void cancelPayment(Payment payment) {
-		LOGGER.debug("Cancel: {}", payment);
-		paymentDao.cancel();
-	}
 	
 	 public void confirmPayment(Payment payment){
 		 LOGGER.debug("Confirm: {}", payment);
@@ -49,6 +45,8 @@ import by.kanchanin.publications.dataaccess.PaymentDao;
 		// TODO Auto-generated method stub
 		
 	}
+
+
 	 
 
 }

@@ -1,7 +1,6 @@
 package by.kanchanin.publications.services.impl;
 
 import java.util.List;
-import javax.persistence.metamodel.SingularAttribute;
 import org.apache.commons.lang3.Validate;
 import org.springframework.stereotype.Service;
 
@@ -35,9 +34,7 @@ import by.kanchanin.publications.services.CompanyService;
 			companyDao.delete(id);
 		}
 		
-		public List<Company> getAllCompanies(SingularAttribute<Company, ?> attr, int startRecord, int pageSize) {
-	        return companyDao.getAllCompanies(attr, startRecord, pageSize);
-	    }
+
 		
 		public List<Company> getAllProducts() {
 	        return companyDao.getAllCompanies();
@@ -48,6 +45,11 @@ import by.kanchanin.publications.services.CompanyService;
 	    public List<Company> getAllCompaniesByName(String name) {
 	        return companyDao.getAllCompaniesByName(name);
 	    }
+
+		@Override
+		public List<Company> getAllCompanies() {
+			return companyDao.getAllCompanies();
+		}
 	
 	
 

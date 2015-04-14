@@ -15,8 +15,6 @@ public interface PeriodicalServise {
     @Transactional
     void updatePeriodical(Periodical periodical);
 
-    @Transactional
-    void hidePeriodical(Periodical profile);
 
     @Transactional
     void removePeriodical(Long id);

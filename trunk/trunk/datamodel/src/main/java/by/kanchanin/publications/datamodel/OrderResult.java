@@ -31,12 +31,12 @@ public class OrderResult extends AbstractEntity{
 	        this.id = id;
 	    }
 	    
-	    public OrderStatus getStatus() {
+	    public OrderStatus getStatus(OrderStatus orderStatus) {
 	        return status;
 	    }
 
-	    public void setStatus(OrderStatus status) {
-	        this.status = status;
+	    public void setStatus(OrderStatus orderStatus) {
+	        this.status = orderStatus;
 	    }
 
 }

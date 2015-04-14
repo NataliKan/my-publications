@@ -51,8 +51,8 @@ public abstract class AbstractDaoImpl<ID, Entity> implements AbstractDao<ID, Ent
 	}
 	
 	@Override
-	public void add(List<ID> ids) {
-		em.createQuery(String.format("add to %s e where e.id in (:ids)", entityClass.getSimpleName())).setParameter("ids", ids)
+	public void add(Long id) {
+		em.createQuery(String.format("add to %s e where e.id in (:ids)", entityClass.getSimpleName())).setParameter("id", id)
 				.executeUpdate();
 	}
 	

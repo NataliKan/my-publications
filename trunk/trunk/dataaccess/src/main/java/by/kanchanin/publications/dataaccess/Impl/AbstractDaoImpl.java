@@ -49,6 +49,13 @@ public abstract class AbstractDaoImpl<ID, Entity> implements AbstractDao<ID, Ent
 		em.createQuery(String.format("delete from %s e where e.id in (:ids)", entityClass.getSimpleName())).setParameter("ids", ids)
 				.executeUpdate();
 	}
+	
+	@Override
+	public void add(List<ID> ids) {
+		em.createQuery(String.format("add to %s e where e.id in (:ids)", entityClass.getSimpleName())).setParameter("ids", ids)
+				.executeUpdate();
+	}
+	
 
 	@Override
 	public void deleteAll() {

@@ -2,15 +2,12 @@ package by.kanchanin.publications.dataaccess.Impl;
 
 import java.util.List;
 
-import javax.persistence.Query;
+
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
 import javax.persistence.criteria.Root;
-import javax.persistence.metamodel.SingularAttribute;
 
-import org.apache.commons.lang3.Validate;
-import org.hibernate.jpa.criteria.OrderImpl;
 import org.springframework.stereotype.Repository;
 
 import by.kanchanin.publications.datamodel.Company_;

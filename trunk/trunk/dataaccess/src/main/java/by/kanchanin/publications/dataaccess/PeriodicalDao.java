@@ -18,11 +18,9 @@ public interface PeriodicalDao extends AbstractDao<Long, Periodical>{
 
     List<Periodical> getAllPeriodicalsByTitle(String title);
 
-    List<Periodical> getAllPeriodicalsWithImages();
-    
     List<Periodical> getAllPeriodicalByPerType(String perType);
 
-    void updatePeriodicalName(Long id, String newTitle);
+    void updatePeriodicalTitle(Long id, String newTitle);
 
 
 }

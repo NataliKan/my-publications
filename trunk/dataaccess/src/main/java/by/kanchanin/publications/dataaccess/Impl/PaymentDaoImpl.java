@@ -12,4 +12,11 @@ public class PaymentDaoImpl extends AbstractDaoImpl<Long, Payment> implements Pa
         super(Payment.class);
     }
 
+	@Override
+	public void confirm(Payment payment) {
+		
+		
+	}
+    
+
 }

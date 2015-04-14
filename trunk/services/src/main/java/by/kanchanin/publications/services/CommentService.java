@@ -18,5 +18,10 @@ public interface CommentService {
 
     @Transactional
     void removeComment(Long id);
+    
+    @Transactional
+	void removeComent(Comment commentFromDbUpdated);
+
+
 
 }

@@ -2,8 +2,8 @@ package by.kanchanin.publications.datamodel.enums;
 
 public enum UserRole {
 	
-	userrole_administrator,
+	administrator,
 	
-	userrole_client,
+	client,
 
 }

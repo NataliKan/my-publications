@@ -12,7 +12,7 @@ public interface CompanyService {
 	@Transactional
     void createNewCompany(Company company);
 
-    @Transactional
+    
     Company get(Long id);
 
     @Transactional
@@ -24,5 +24,8 @@ public interface CompanyService {
     List<Company> getAllCompanies();
 
     List<Company> getAllCompaniesByName(String name);
+
+
+
 
 }

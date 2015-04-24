@@ -14,6 +14,7 @@ import by.kanchanin.publications.datamodel.UserProfile;
 @Service
 public class UserServiceImpl implements UserService{
 	
+	private static final String VALIDATION_ERROR = "This method should be called for 'not saved yet' profile only. Use UPDATE instead";
 	@Inject
     private UserAccountDao accountDao;
     @Inject
@@ -24,8 +25,7 @@ public class UserServiceImpl implements UserService{
     /*    Validate.isTrue(account.getId() == null, "This method should be called for 'not saved yet' account only. Use UPDATE instead");
         accountDao.insert(account);*/
 
-        Validate.isTrue(profile.getId() == null, "This method should be called for 'not saved yet' profile only. Use UPDATE instead");
-        profile.setUserAccount(account);
+        Validate.isTrue(profile.getId() == null, VALIDATION_ERROR);
         profileDao.insert(profile);
     }
 

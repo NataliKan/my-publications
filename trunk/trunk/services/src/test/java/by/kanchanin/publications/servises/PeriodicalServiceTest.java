@@ -1,12 +1,11 @@
 package by.kanchanin.publications.servises;
 
-import java.util.HashSet;
+
 import java.util.List;
-import java.util.Set;
+
 
 import javax.inject.Inject;
 
-import org.hibernate.LazyInitializationException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -31,14 +30,13 @@ public class PeriodicalServiceTest extends AbstractServiceTest{
     }
 	
 	@Test
-    public void basicCRUDTest() {
+    public void basicCreateTest() {
 		Periodical periodical = createPeriodical();
 		periodicalService.updatePeriodical(periodical);
 
 		Periodical periodicalFromDb = periodicalService.get(periodical.getId());
         Assert.assertNotNull(periodicalFromDb);
         Assert.assertEquals(periodicalFromDb.getTitle(), periodical.getTitle());
-        // TODO check other fields
 
         periodicalFromDb.setTitle("newTitle");
         periodicalService.updatePeriodical(periodicalFromDb);
@@ -49,5 +47,37 @@ public class PeriodicalServiceTest extends AbstractServiceTest{
         periodicalService.deleteAll();
         Assert.assertNull(periodicalService.get(periodical.getId()));
     }
+	
+	@Test
+    public void searchTest() {
+		Periodical periodical = createPeriodical();
+		periodicalService.updatePeriodical(periodical);
+
+        List<Periodical> allPeriodical = periodicalService.getAllPeriodicals();
+        Assert.assertEquals(allPeriodical.size(), 1);
+
+    }
+	
+	@Test
+    public void searchByTitleTest() {
+		Periodical periodical = createPeriodical();
+        String title = randomString("title-");
+        periodical.setTitle(title);
+        periodicalService.updatePeriodical(periodical);
+
+        Periodical anotherPeriodical = createPeriodical();
+        periodicalService.updatePeriodical(anotherPeriodical);
+
+        List<Periodical> allProduct = periodicalService.getAllPeriodicals();
+        Assert.assertEquals(allProduct.size(), 2);
+
+        List<Periodical> allPeriodicalByTitle = periodicalService.getAllPeriodicalsByTitle(title);
+        Assert.assertEquals(allPeriodicalByTitle.size(), 1);
+        Assert.assertEquals(allPeriodicalByTitle.get(0).getId(), periodical.getId());
+
+    }
+	
+	
+
 
 }

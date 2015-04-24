@@ -116,8 +116,8 @@ public abstract class AbstractServiceTest {
         userProfile.setTelefone(randomLong());
         userProfile.setCreditCard(randomLong());
         userProfile.setCreated(randomDate());
-        userProfile.setRole(UserRole.userrole_administrator);
-        userProfile.setRole(UserRole.userrole_client);
+        userProfile.setRole(UserRole.administrator);
+        userProfile.setRole(UserRole.client);
         return userProfile;
     }
 
@@ -145,8 +145,8 @@ public abstract class AbstractServiceTest {
     
     protected OrderResult createOrderResult (){
     	OrderResult orderResult = new OrderResult();
-    	orderResult.setStatus(OrderStatus.orderstatus_succeeded);
-    	orderResult.setStatus(OrderStatus.orderstatus_failed);
+    	orderResult.setStatus(OrderStatus.succeeded);
+    	orderResult.setStatus(OrderStatus.failed);
     	return orderResult;
     }
     

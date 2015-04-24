@@ -5,9 +5,9 @@ public enum OrderStatus {
 		// ADD ITEMS TO THE END OF LIST ONLY
 		// DON'T REMOVE
 
-		orderstatus_succeeded,
+		succeeded,
 
-		orderstatus_failed,
+		failed,
 
 	}
 

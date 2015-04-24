@@ -42,6 +42,12 @@ public class CommentServiceImpl implements CommentService{
 		commentDao.delete(id);
 	}
 
+	@Override
+	public void removeComent(Comment commentFromDbUpdated) {
+		// TODO Auto-generated method stub
+		
+	}
+
 }
 
 

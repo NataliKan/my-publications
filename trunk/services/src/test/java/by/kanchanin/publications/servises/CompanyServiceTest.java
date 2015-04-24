@@ -1,12 +1,10 @@
 package by.kanchanin.publications.servises;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
+
 
 import javax.inject.Inject;
 
-import org.hibernate.LazyInitializationException;
+import org.junit.After;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -25,21 +23,22 @@ public class CompanyServiceTest extends AbstractServiceTest{
     @Inject
     private CompanyService companyService;
     
-    @Before
+    private Long id;
+    
+    @After
     public void cleanUpData() {
         LOGGER.info("Instance of ProductService is injected. Class is: {}", companyService.getClass().getName());
-        companyService.removeCompany(null);
+        companyService.removeCompany(id);
     }
     
     @Test
     public void basicCRUDTest() {
     	Company company = createCompany();
     	companyService.updateCompany(company);
-
+    	id = company.getId();
     	Company companyFromDb = companyService.get(company.getId());
         Assert.assertNotNull(companyFromDb);
         Assert.assertEquals(companyFromDb.getCompanyName(), company.getCompanyName());
-        // TODO check other fields
 
         companyFromDb.setCompanyName("newName");
         companyService.updateCompany(companyFromDb);
@@ -47,9 +46,20 @@ public class CompanyServiceTest extends AbstractServiceTest{
         Assert.assertEquals(companyFromDbUpdated.getCompanyName(), companyFromDb.getCompanyName());
         Assert.assertNotEquals(companyFromDbUpdated.getCompanyName(), company.getCompanyName());
 
-        companyService.removeCompany(companyFromDbUpdated);
+        companyService.removeCompany(id);
         Assert.assertNull(companyService.get(company.getId()));
     }
+    
+    @Test
+    public void getAllCompaniesByNameTest () {
+    	
+    }
+    
+    
+    
+    
+    
+    
 
 
 }

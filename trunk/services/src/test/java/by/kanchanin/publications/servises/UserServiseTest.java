@@ -18,6 +18,7 @@ import by.kanchanin.publications.datamodel.UserProfile;
 import by.kanchanin.publications.AbstractServiceTest;
 import by.kanchanin.publications.services.UserService;
 
+
 public class UserServiseTest extends AbstractServiceTest{
 	
 	 @Inject

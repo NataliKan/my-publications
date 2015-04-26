@@ -3,12 +3,12 @@
 <Configure class="org.eclipse.jetty.webapp.WebAppContext">
     <New id="testDS" class="org.eclipse.jetty.plus.jndi.Resource">
         <Arg></Arg>
-        <Arg>jdbc/trainingDS</Arg>
+        <Arg>jdbc/publicationsDS</Arg>
         <Arg>
 	         <New class="org.postgresql.ds.PGSimpleDataSource">
-	           <Set name="User">testUser</Set>
-	           <Set name="Password">test</Set>
-	           <Set name="DatabaseName">training</Set>
+	           <Set name="User">new developer</Set>
+	           <Set name="Password">tel2899151</Set>
+	           <Set name="DatabaseName">publications</Set>
 	           <Set name="ServerName">localhost</Set>
 	           <Set name="PortNumber">5432</Set>
 	        </New>

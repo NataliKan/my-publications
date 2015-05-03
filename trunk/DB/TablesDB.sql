@@ -1,104 +1,107 @@
-CREATE TABLE periodicals.user_account
+SET search_path TO 'public';
+
+CREATE TABLE user_account
 (
-  user_id integer NOT NULL DEFAULT nextval('periodicals.user_user_id_seq'::regclass), -- PK
-  first_name text NOT NULL, -- Имя пользователя
-  last_name text NOT NULL, -- Фамилия пользователя
-  "e-mail" character varying(200)[],
-  password character varying(250)[],
-  CONSTRAINT user_pr_key PRIMARY KEY (user_id),
-  CONSTRAINT user_unique UNIQUE ("e-mail")
+  user_id serial NOT NULL,
+  first_name text NOT NULL,
+  last_name text NOT NULL,
+  "e-mail" character varying(200)[] NOT NULL,
+  password character varying(200)[] NOT NULL,
+  CONSTRAINT user_id PRIMARY KEY (user_id),
+  CONSTRAINT "e-mail" UNIQUE ("e-mail")
 );
 
-CREATE TABLE periodicals.user_profile
+CREATE TABLE user_profile
 (
-  profile_id integer NOT NULL,
+  profile_id serial NOT NULL,
   adress character varying(200),
-  telefone character varying(150)[],
-  credit_card character varying(250)[],
-  create_date date,
-  user_id integer,
-  user_role smallint NOT NULL DEFAULT 0,
+  telefone character varying(200),
+  credit_card character varying(250)[] NOT NULL,
+  create_date date NOT NULL,
+  user_role text NOT NULL,
+  user_id serial NOT NULL,
   CONSTRAINT profile_id PRIMARY KEY (profile_id),
   CONSTRAINT user_id FOREIGN KEY (user_id)
-      REFERENCES periodicals.user_account (user_id) MATCH SIMPLE
+      REFERENCES user_account (user_id) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
-CREATE TABLE periodicals.comment
+CREATE TABLE company
 (
-  comment_id integer NOT NULL,
-  user_id integer,
-  comment_text character varying(400)[],
-  CONSTRAINT comment_id PRIMARY KEY (comment_id),
-  CONSTRAINT user_id FOREIGN KEY (user_id)
-      REFERENCES periodicals.user_account (user_id) MATCH SIMPLE
+  company_id serial NOT NULL,
+  company_name character varying(150)[] NOT NULL,
+  periodical integer,
+  CONSTRAINT company_id PRIMARY KEY (company_id),
+  CONSTRAINT periodical FOREIGN KEY (periodical)
+      REFERENCES periodical (periodical_id) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
-
-CREATE TABLE periodicals.periodical
+CREATE TABLE periodical
 (
-  periodical_id integer NOT NULL, -- PK
-  title character varying(100)[] NOT NULL, -- Название издания
-  per_type text, -- Тематика издания
-  company integer, -- Издательство (FK)
-  date_of_issue date NOT NULL, -- Дата издания
-  price numeric(12,2) NOT NULL,
-  available boolean NOT NULL DEFAULT true,
-  CONSTRAINT periodical_pr_key PRIMARY KEY (periodical_id),
+  periodical_id serial NOT NULL,
+  title text NOT NULL,
+  per_type character varying(100),
+  company serial NOT NULL,
+  date_of_issue date,
+  price numeric,
+  available boolean DEFAULT true,
+  image_url character varying(500)[],
+  discount integer,
+  CONSTRAINT periodical_id PRIMARY KEY (periodical_id),
   CONSTRAINT company FOREIGN KEY (company)
-      REFERENCES periodicals.company (company_id) MATCH SIMPLE
+      REFERENCES company (company_id) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
-REATE TABLE periodicals.company
+CREATE TABLE shopping_cart
 (
-  company_id integer NOT NULL, -- PK
-  company_name character varying(100) NOT NULL, -- Справочник издательств
-  publishings integer, -- Список периодических изданий по каждому издательству
-  CONSTRAINT pr_key_company PRIMARY KEY (company_id),
-  CONSTRAINT publications FOREIGN KEY (publishings)
-      REFERENCES periodicals.periodical (periodical_id) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
-);
-
-REATE TABLE periodicals.shopping_cart
-(
-  order_id integer NOT NULL, -- PK
-  user_id integer, -- Клиент
-  periodical_id integer, -- Наименование издания к подписке
-  CONSTRAINT order_pr_key PRIMARY KEY (order_id),
-  CONSTRAINT order_periodical_id_fkey FOREIGN KEY (periodical_id)
-      REFERENCES periodicals.periodical (periodical_id) MATCH SIMPLE
+  order_id serial NOT NULL,
+  user_id serial NOT NULL,
+  periodical_id serial NOT NULL,
+  CONSTRAINT order_id PRIMARY KEY (order_id),
+  CONSTRAINT periodical_id FOREIGN KEY (periodical_id)
+      REFERENCES periodical (periodical_id) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT order_user_id_fkey FOREIGN KEY (user_id)
-      REFERENCES periodicals.user_account (user_id) MATCH SIMPLE
+  CONSTRAINT user_id FOREIGN KEY (user_id)
+      REFERENCES user_account (user_id) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
-CREATE TABLE periodicals.payment
+CREATE TABLE payment
 (
-  payment_id integer NOT NULL,
-  user_id integer,
-  order_id integer,
-  date_of_payment date,
+  payment_id serial NOT NULL,
+  user_id integer NOT NULL,
+  order_id integer NOT NULL,
+  date_of_payment date NOT NULL,
   CONSTRAINT payment_id PRIMARY KEY (payment_id),
   CONSTRAINT order_id FOREIGN KEY (order_id)
-      REFERENCES periodicals.shopping_cart (order_id) MATCH SIMPLE
+      REFERENCES shopping_cart (order_id) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION,
-  CONSTRAINT payment_user_id_fkey FOREIGN KEY (user_id)
-      REFERENCES periodicals.user_account (user_id) MATCH SIMPLE
+  CONSTRAINT user_id FOREIGN KEY (user_id)
+      REFERENCES user_account (user_id) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
-CREATE TABLE periodicals.order_result
+CREATE TABLE order_result
 (
-  result_id integer NOT NULL, -- PK
-  order_id integer, -- номер заказа
-  order_status smallint NOT NULL DEFAULT 0,
-  CONSTRAINT result_pr_key PRIMARY KEY (result_id),
-  CONSTRAINT order_id_fr_key FOREIGN KEY (order_id)
-      REFERENCES periodicals.shopping_cart (order_id) MATCH SIMPLE
+  result_id serial NOT NULL,
+  order_id integer NOT NULL,
+  order_status character varying(50)[],
+  CONSTRAINT result_id PRIMARY KEY (result_id),
+  CONSTRAINT order_id FOREIGN KEY (order_id)
+      REFERENCES shopping_cart (order_id) MATCH SIMPLE
       ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
+REATE TABLE comment
+(
+  comment_id serial NOT NULL,
+  user_id integer NOT NULL,
+  comment_text character varying(500)[],
+  comment_date date,
+  CONSTRAINT comment_id PRIMARY KEY (comment_id),
+  CONSTRAINT user_id FOREIGN KEY (user_id)
+      REFERENCES user_account (user_id) MATCH SIMPLE
+      ON UPDATE NO ACTION ON DELETE NO ACTION
+);

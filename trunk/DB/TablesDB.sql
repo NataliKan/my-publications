@@ -5,10 +5,10 @@ CREATE TABLE user_account
   user_id serial NOT NULL,
   first_name text NOT NULL,
   last_name text NOT NULL,
-  "e-mail" character varying(200)[] NOT NULL,
-  password character varying(200)[] NOT NULL,
+  email character varying NOT NULL,
+  password character varying,
   CONSTRAINT user_id PRIMARY KEY (user_id),
-  CONSTRAINT "e-mail" UNIQUE ("e-mail")
+  CONSTRAINT email UNIQUE (email)
 );
 
 CREATE TABLE user_profile

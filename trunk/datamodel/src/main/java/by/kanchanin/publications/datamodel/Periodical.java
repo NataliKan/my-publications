@@ -39,8 +39,15 @@ public class Periodical extends AbstractEntity{
 	@Column
     private BigDecimal price;
 	
-	 @Column
-	    private Boolean available;
+	@Column
+	private Boolean available;
+	
+	@Column
+	private String image;
+	
+	@Column
+	private Long discount;
+	 
 	 
 	 public Long getId() {
 			return id;
@@ -102,5 +109,22 @@ public class Periodical extends AbstractEntity{
 			this.company = company;
 		}
 		
+		public String getImage() {
+			return image;
+		
+		}
+		
+		public void setImage(String image) {
+			this.image = image;
+		}
+		
+		public Long getDiscount() {
+			return discount;
+		}
+
+		public void setDiscount(Long discount) {
+			this.discount = discount;
+		}
 		
 }
+		

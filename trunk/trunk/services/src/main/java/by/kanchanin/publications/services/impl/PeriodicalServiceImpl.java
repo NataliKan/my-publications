@@ -42,6 +42,8 @@ public class PeriodicalServiceImpl {
 	public void removePeriodical(Long id) {
 		periodicalDao.delete(id);
 	}
+	
+	
 
 
 }

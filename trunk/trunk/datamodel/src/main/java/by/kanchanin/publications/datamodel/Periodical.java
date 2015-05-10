@@ -43,9 +43,6 @@ public class Periodical extends AbstractEntity{
 	private Boolean available;
 	
 	@Column
-	private String image;
-	
-	@Column
 	private Long discount;
 	 
 	 
@@ -109,14 +106,6 @@ public class Periodical extends AbstractEntity{
 			this.company = company;
 		}
 		
-		public String getImage() {
-			return image;
-		
-		}
-		
-		public void setImage(String image) {
-			this.image = image;
-		}
 		
 		public Long getDiscount() {
 			return discount;

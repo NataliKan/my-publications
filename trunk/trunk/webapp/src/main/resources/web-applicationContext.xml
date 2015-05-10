@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version = "1.0" encoding = "UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xmlns:tx="http://www.springframework.org/schema/tx" xmlns:p="http://www.springframework.org/schema/p"
@@ -15,9 +15,13 @@
 	    http://www.springframework.org/schema/task/spring-task-3.0.xsd">
 
 
-	<jee:jndi-lookup id="dataSource" jndi-name="jdbc/publicationsDS" />
 
-    <import resource="classpath:spring-context.xml" />
+<import resource="classpath:spring-context.xml" />
+<jee:jndi-lookup id="dataSource" jndi-name="jdbc/trainingDS" />	
+
+    
 	<context:component-scan base-package="by.kanchanin.publications.webapp.app" />
+
+
 
 </beans>

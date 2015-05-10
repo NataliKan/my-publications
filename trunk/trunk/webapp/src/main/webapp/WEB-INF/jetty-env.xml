@@ -6,9 +6,9 @@
         <Arg>jdbc/publicationsDS</Arg>
         <Arg>
 	         <New class="org.postgresql.ds.PGSimpleDataSource">
-	           <Set name="User">new developer</Set>
-	           <Set name="Password">tel2899151</Set>
-	           <Set name="DatabaseName">publications</Set>
+	           <Set name="User">postgres</Set>
+	           <Set name="Password">123qwe</Set>
+	           <Set name="DatabaseName">my</Set>
 	           <Set name="ServerName">localhost</Set>
 	           <Set name="PortNumber">5432</Set>
 	        </New>

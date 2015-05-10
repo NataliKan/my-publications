@@ -46,7 +46,6 @@ CREATE TABLE periodical
   date_of_issue date,
   price numeric,
   available boolean DEFAULT true,
-  image_url character varying(500)[],
   discount integer,
   CONSTRAINT periodical_id PRIMARY KEY (periodical_id),
   CONSTRAINT company FOREIGN KEY (company)

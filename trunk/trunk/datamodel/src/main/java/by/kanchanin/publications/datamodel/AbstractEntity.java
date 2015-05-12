@@ -1,9 +1,11 @@
 package by.kanchanin.publications.datamodel;
 
+import java.io.Serializable;
+
 import javax.persistence.MappedSuperclass;
 
 @MappedSuperclass
-public abstract class AbstractEntity {
+public abstract class AbstractEntity implements Serializable {
 	
 	public abstract Long getId();
 

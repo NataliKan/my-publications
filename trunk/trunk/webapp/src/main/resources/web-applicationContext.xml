@@ -17,7 +17,7 @@
 
 
 <import resource="classpath:spring-context.xml" />
-<jee:jndi-lookup id="dataSource" jndi-name="jdbc/trainingDS" />	
+<jee:jndi-lookup id="dataSource" jndi-name="jdbc/ds_kanchanin" />	
 
     
 	<context:component-scan base-package="by.kanchanin.publications.webapp.app" />

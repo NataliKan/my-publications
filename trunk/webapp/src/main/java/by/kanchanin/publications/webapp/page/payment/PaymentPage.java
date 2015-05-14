@@ -1,5 +1,7 @@
 package by.kanchanin.publications.webapp.page.payment;
 
-public class PaymentPage {
+import org.apache.wicket.markup.html.WebPage;
+
+public class PaymentPage extends WebPage {
 
 }

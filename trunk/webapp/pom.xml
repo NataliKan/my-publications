@@ -60,5 +60,9 @@
 	
 	
 	</dependencies>
+	
+	<build>
+		<finalName>kanchanin</finalName>
+	</build>
 
 </project>

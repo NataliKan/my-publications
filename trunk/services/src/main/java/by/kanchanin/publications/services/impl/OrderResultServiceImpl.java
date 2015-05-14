@@ -1,6 +1,11 @@
 package by.kanchanin.publications.services.impl;
 
+import java.util.Arrays;
+import java.util.List;
+
 import by.kanchanin.publications.datamodel.OrderResult;
+import by.kanchanin.publications.datamodel.enums.OrderStatus;
+
 
 import javax.inject.Inject;
 
@@ -27,4 +32,12 @@ import by.kanchanin.publications.services.OrderResultService;
 		public  void removeOrderResult(Long id) {
 			orderResultDao.delete(id);
 		}
+
+		@Override
+		public List<OrderStatus> getStatus(Long orderId) {
+			// FIXME replace with call to DB
+			return Arrays.asList(OrderStatus.succeeded);
+		}
+		
+		
 }

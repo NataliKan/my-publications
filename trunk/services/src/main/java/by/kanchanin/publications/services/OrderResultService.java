@@ -1,8 +1,11 @@
 package by.kanchanin.publications.services;
 
+import java.util.List;
+
 import org.springframework.transaction.annotation.Transactional;
 
 import by.kanchanin.publications.datamodel.OrderResult;
+import by.kanchanin.publications.datamodel.enums.OrderStatus;
 
 
 public interface OrderResultService {
@@ -16,5 +19,7 @@ public interface OrderResultService {
 
     @Transactional
     void removeOrderResult(Long id);
+    
+    List<OrderStatus> getStatus(Long orderId);
 
 }

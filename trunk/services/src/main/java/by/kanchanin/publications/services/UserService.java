@@ -6,6 +6,7 @@ import java.util.List;
 
 import by.kanchanin.publications.datamodel.UserAccount;
 import by.kanchanin.publications.datamodel.UserProfile;
+import by.kanchanin.publications.datamodel.enums.UserRole;
 
 public interface UserService {
 	
@@ -23,7 +24,7 @@ public interface UserService {
     
     UserAccount getAccountByEmail(String userName);
 
-    List<String> getRoles(Long userId);
+    List<UserRole> getRoles(Long userId);
 
 
 }

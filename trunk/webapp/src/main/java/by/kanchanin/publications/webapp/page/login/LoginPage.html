@@ -1,10 +1,19 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<title>Insert title here</title>
-</head>
-<body>
+<wicket:extend xmlns:wicket="http://wicket.apache.org">
 
-</body>
-</html>
+<div class="login">
+		<h1>
+			Login form
+		</h1>
+		<form wicket:id="form">
+			<p class="input">
+				<input type="text" wicket:id="username" class="emailfield" />
+			</p>
+			<p class="input">
+				<input type="password" wicket:id="password"  />
+			</p>
+			<input type="submit" value="login" />
+		</form>
+	</div>
+
+
+</wicket:extend>

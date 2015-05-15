@@ -1,7 +1,7 @@
 package by.kanchanin.publications.webapp.page.order;
 
-import org.apache.wicket.markup.html.WebPage;
+import by.kanchanin.publications.webapp.page.BaseLayout;
 
-public class ShoppingCartPage extends WebPage {
+public class ShoppingCartPage extends BaseLayout {
 
 }

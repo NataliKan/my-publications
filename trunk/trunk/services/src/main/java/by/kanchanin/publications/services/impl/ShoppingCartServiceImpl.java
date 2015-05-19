@@ -26,9 +26,9 @@ public class ShoppingCartServiceImpl {
 		cartDao.add(id);
 	}
 	
-	public void deleteFromCart(Long id) {
-		LOGGER.debug("Remove: {}", id);
-		cartDao.delete(id);
+	public void deleteFromCart(ShoppingCart cart) {
+		LOGGER.debug("Remove: {}", cart);
+		cartDao.delete(cart);
 	
 	}
 	

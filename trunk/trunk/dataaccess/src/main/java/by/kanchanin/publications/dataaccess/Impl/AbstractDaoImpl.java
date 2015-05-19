@@ -43,6 +43,13 @@ public abstract class AbstractDaoImpl<ID, Entity> implements AbstractDao<ID, Ent
 	}
 	
 	@Override
+	public Entity delete(Entity entity) {
+		entity = em.merge(entity);
+		em.flush();
+		return entity;
+	}
+	
+	@Override
 	public List<Entity> getAllByFieldRestriction(final SingularAttribute<? super Entity, ?> attribute, final Object value) {
 		Validate.notNull(value, "Search attributes can't be empty. Attribute: " + attribute.getName());
 		final CriteriaBuilder builder = em.getCriteriaBuilder();
@@ -53,10 +60,6 @@ public abstract class AbstractDaoImpl<ID, Entity> implements AbstractDao<ID, Ent
 		return em.createQuery(criteria).getResultList();
 	}
 
-	@Override
-	public void delete(final ID key) {
-		em.remove(em.find(getEntityClass(), key));
-	}
 
 	@Override
 	public void delete(List<ID> ids) {
@@ -66,10 +69,16 @@ public abstract class AbstractDaoImpl<ID, Entity> implements AbstractDao<ID, Ent
 	
 	@Override
 	public void add(Long id) {
-		em.createQuery(String.format("add to %s e where e.id in (:ids)", entityClass.getSimpleName())).setParameter("id", id)
+		em.createQuery(String.format("add to %s e where e.id in (:id)", entityClass.getSimpleName())).setParameter("id", id)
 				.executeUpdate();
 	}
 	
+	
+	@Override
+	public void delete(Long id) {
+		em.createQuery(String.format("delete from %s e where id = (:id)", entityClass.getSimpleName())).setParameter("id", id)
+				.executeUpdate();
+	}
 
 	@Override
 	public void deleteAll() {

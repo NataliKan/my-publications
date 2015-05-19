@@ -4,6 +4,8 @@ import java.util.List;
 
 import javax.persistence.metamodel.SingularAttribute;
 
+import by.kanchanin.publications.datamodel.Periodical;
+
 
 public interface AbstractDao<ID, Entity> {
 
@@ -11,18 +13,22 @@ public interface AbstractDao<ID, Entity> {
 
 	List<Entity> getAll();
 
-	void delete(ID key);
-
 	void deleteAll();
 	
 	void delete(List<ID> ids);
 	
 	List<Entity> getAllByFieldRestriction(final SingularAttribute<? super Entity, ?> attribute, final Object value);
 	
+	void delete(Long id);
+	
 	void add(Long id);
 
 	Entity insert(Entity entity);
 
 	Entity update(Entity entity);
+	
+	Entity delete(Entity entity);
+	
+	
 	
 }

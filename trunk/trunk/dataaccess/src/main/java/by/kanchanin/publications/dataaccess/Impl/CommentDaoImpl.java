@@ -12,6 +12,7 @@ public class CommentDaoImpl extends AbstractDaoImpl<Long, Comment> implements Co
 
     protected CommentDaoImpl() {
         super(Comment.class);
+       
     }
 
 	

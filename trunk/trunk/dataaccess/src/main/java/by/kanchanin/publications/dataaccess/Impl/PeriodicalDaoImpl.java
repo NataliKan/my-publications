@@ -113,4 +113,10 @@ public class PeriodicalDaoImpl extends AbstractDaoImpl<Long, Periodical> impleme
 	        int updatedRowsCount = updateQuery.executeUpdate();
 	        Validate.isTrue(updatedRowsCount == 1, "One row should be updated");
 	    }
+
+
+		
+	
+
+
 }

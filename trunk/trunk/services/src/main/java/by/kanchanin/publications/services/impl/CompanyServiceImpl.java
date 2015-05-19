@@ -1,6 +1,7 @@
 package by.kanchanin.publications.services.impl;
 
 import java.util.List;
+
 import org.apache.commons.lang3.Validate;
 import org.springframework.stereotype.Service;
 
@@ -30,8 +31,8 @@ import by.kanchanin.publications.services.CompanyService;
 			companyDao.update(company);
 		}
 		
-		public void removeCompany(Long id) {
-			companyDao.delete(id);
+		public void removeCompany(Company company) {
+			companyDao.delete(company);
 		}
 		
 
@@ -49,6 +50,12 @@ import by.kanchanin.publications.services.CompanyService;
 		@Override
 		public List<Company> getAllCompanies() {
 			return companyDao.getAllCompanies();
+		}
+
+		@Override
+		public void removeCompany(Long id) {
+			// TODO Auto-generated method stub
+			
 		}
 	
 	

@@ -7,6 +7,7 @@ import by.kanchanin.publications.datamodel.OrderResult;
 import by.kanchanin.publications.datamodel.enums.OrderStatus;
 
 
+
 import javax.inject.Inject;
 
 import org.springframework.stereotype.Service;
@@ -29,14 +30,20 @@ import by.kanchanin.publications.services.OrderResultService;
 			orderResultDao.update(orderResult);
 		}
 		
-		public  void removeOrderResult(Long id) {
-			orderResultDao.delete(id);
+		public  void removeOrderResult(OrderResult orderResult) {
+			orderResultDao.delete(orderResult);
 		}
 
 		@Override
 		public List<OrderStatus> getStatus(Long orderId) {
 			// FIXME replace with call to DB
 			return Arrays.asList(OrderStatus.succeeded);
+		}
+
+		@Override
+		public void removeOrderResult(Long id) {
+			// TODO Auto-generated method stub
+			
 		}
 		
 		

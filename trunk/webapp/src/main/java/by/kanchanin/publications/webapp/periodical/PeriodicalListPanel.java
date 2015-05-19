@@ -65,34 +65,10 @@ public class PeriodicalListPanel extends Panel {
 					}
 				});
 
-				item.add(new Link<Void>("remove") {
-					@Override
-					public void onClick() {
-						boolean isProtectedPtroduct = Boolean.FALSE;
-						if (isProtectedPtroduct) {
-							HomePage page = new HomePage();
-							page.info("can't not deleted because of...");
-							setResponsePage(page);
-						} else {
-							periodicalService.delete(periodical);
-							HomePage page = new HomePage();
-							page.info("product deleted!!!!");
-							setResponsePage(page);
-						}
+				
 
 					}
-				});
 
-				item.add(new AjaxLink<Void>("remove-ajax") {
-					@Override
-					public void onClick(AjaxRequestTarget target) {
-						periodicalService.delete(periodical);
-						target.add(PeriodicalListPanel.this);
-					}
-
-				});
-
-			}
 		};
 
 		tableBody.add(dataView);
@@ -131,6 +107,8 @@ public class PeriodicalListPanel extends Panel {
 			// TODO Auto-generated method stub
 			return 0;
 		}
+
+	
 	}
 
 	

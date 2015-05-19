@@ -2,6 +2,8 @@ package by.kanchanin.publications.webapp.periodical;
 
 import java.math.BigDecimal;
 
+import javax.inject.Inject;
+
 import org.apache.wicket.bean.validation.PropertyValidator;
 import org.apache.wicket.markup.html.form.CheckBox;
 import org.apache.wicket.markup.html.form.Form;

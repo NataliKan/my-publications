@@ -58,7 +58,7 @@ public class PeriodicalDetailsPanel extends Panel {
 			public void onClick() {
 				setResponsePage(new PeriodicalDetailsPage(periodical, new PageCreator() {
 
-					@Override
+				@Override
 					public Page createPage() {
 						return new HomePage();
 					}

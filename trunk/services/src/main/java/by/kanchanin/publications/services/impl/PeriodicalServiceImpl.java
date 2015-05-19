@@ -38,10 +38,7 @@ public class PeriodicalServiceImpl {
 		periodicalDao.update(periodical);
 	}
 	
-	
-	public void removePeriodical(Long id) {
-		periodicalDao.delete(id);
-	}
+
 	
 	
 

@@ -19,7 +19,7 @@ import by.kanchanin.publications.datamodel.enums.UserRole;
 @Service
 public class UserServiceImpl implements UserService{
 	
-	private static final String VALIDATION_ERROR = "This method should be called for 'not saved yet' profile only. Use UPDATE instead";
+	private static final String VALIDATION_ERROR = "This method should be called for 'not saved yet'23 с profile only. Use UPDATE instead";
 	@Inject
     private UserAccountDao accountDao;
     @Inject

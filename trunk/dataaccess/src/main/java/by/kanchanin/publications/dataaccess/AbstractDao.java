@@ -4,8 +4,6 @@ import java.util.List;
 
 import javax.persistence.metamodel.SingularAttribute;
 
-import by.kanchanin.publications.datamodel.Periodical;
-
 
 public interface AbstractDao<ID, Entity> {
 

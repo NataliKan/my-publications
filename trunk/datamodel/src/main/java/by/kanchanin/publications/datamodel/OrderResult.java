@@ -48,5 +48,16 @@ public class OrderResult extends AbstractEntity{
 	    public void setStatus(OrderStatus orderStatus) {
 	        this.status = orderStatus;
 	    }
+	    
+	    public ShoppingCart getShoppingCart (ShoppingCart shoppingCart){
+	    	return shoppingCart;
+	    }
+	    
+	    public void setShoppingCart(ShoppingCart shoppingCart) {
+	        this.shoppingCart = shoppingCart;
+	    }
+	    
+	    
+	    
 
 }

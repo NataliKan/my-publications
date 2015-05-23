@@ -46,7 +46,6 @@ CREATE TABLE periodical
   date_of_issue date,
   price numeric,
   available boolean DEFAULT true,
-  discount integer,
   CONSTRAINT periodical_id PRIMARY KEY (periodical_id),
   CONSTRAINT company FOREIGN KEY (company)
       REFERENCES company (company_id) MATCH SIMPLE

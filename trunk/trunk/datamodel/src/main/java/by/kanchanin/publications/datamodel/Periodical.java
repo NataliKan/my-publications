@@ -42,8 +42,6 @@ public class Periodical extends AbstractEntity{
 	@Column
 	private Boolean available;
 	
-	@Column
-	private Long discount;
 	 
 	 
 	 public Long getId() {
@@ -106,14 +104,6 @@ public class Periodical extends AbstractEntity{
 			this.company = company;
 		}
 		
-		
-		public Long getDiscount() {
-			return discount;
-		}
-
-		public void setDiscount(Long discount) {
-			this.discount = discount;
-		}
 		
 }
 		

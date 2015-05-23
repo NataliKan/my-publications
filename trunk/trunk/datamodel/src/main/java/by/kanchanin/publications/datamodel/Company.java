@@ -22,7 +22,7 @@ public class Company extends AbstractEntity{
 	    @Column
 	    private String companyName;
 	    
-	    @ManyToOne(fetch = FetchType.EAGER, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
+	    @ManyToOne(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE, CascadeType.PERSIST})
 	    @JoinColumn(name = "periodical_id", nullable = false)
 	    private Periodical periodical;
 	     

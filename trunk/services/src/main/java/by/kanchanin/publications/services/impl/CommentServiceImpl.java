@@ -1,6 +1,8 @@
 package by.kanchanin.publications.services.impl;
 
 
+import java.util.List;
+
 import javax.inject.Inject;
 
 import org.apache.commons.lang3.Validate;
@@ -11,6 +13,8 @@ import org.springframework.stereotype.Service;
 import by.kanchanin.publications.dataaccess.CommentDao;
 import by.kanchanin.publications.services.CommentService;
 import by.kanchanin.publications.datamodel.Comment;
+import by.kanchanin.publications.datamodel.Comment_;
+import by.kanchanin.publications.datamodel.Periodical;
 
 @Service
 public class CommentServiceImpl implements CommentService{
@@ -43,15 +47,15 @@ public class CommentServiceImpl implements CommentService{
 	}
 
 	@Override
-	public void removeComent(Comment commentFromDbUpdated) {
-		// TODO Auto-generated method stub
-		
-	}
-
-	@Override
 	public void removeComment(Long id) {
 		// TODO Auto-generated method stub
 		
+	}
+	
+	@Override
+	public List<Comment> getAllByPeriodical(Periodical periodical) {
+		return commentDao.getAllByFieldRestriction(Comment_.periodical, periodical, Comment_.periodical,
+				Comment_.userAccount);
 	}
 
 }

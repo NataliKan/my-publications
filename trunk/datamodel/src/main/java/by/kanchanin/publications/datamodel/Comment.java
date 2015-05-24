@@ -29,6 +29,10 @@ public class Comment  extends AbstractEntity{
 	@Column
 	private Date dateOfComment;
 	
+	@ManyToOne(fetch = FetchType.LAZY, targetEntity = Periodical.class)
+	private Periodical periodical;
+	
+	
 	public Long getId() {
         return id;
     }
@@ -60,6 +64,14 @@ public class Comment  extends AbstractEntity{
 	
 	public void setDateOfComment(Date dateOfComment) {
 		this.dateOfComment = dateOfComment;
+	}
+	
+	public Periodical getPeriodical() {
+		return periodical;
+	}
+
+	public void setBook(Periodical periodical) {
+		this.periodical = periodical;
 	}
 	
 

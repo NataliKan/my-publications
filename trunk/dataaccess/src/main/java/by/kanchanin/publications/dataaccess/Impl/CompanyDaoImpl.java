@@ -3,6 +3,7 @@ package by.kanchanin.publications.dataaccess.Impl;
 import java.util.List;
 
 
+
 import javax.persistence.TypedQuery;
 import javax.persistence.criteria.CriteriaBuilder;
 import javax.persistence.criteria.CriteriaQuery;
@@ -50,6 +51,8 @@ public class CompanyDaoImpl extends AbstractDaoImpl<Long, Company> implements Co
         List<Company> results = query.getResultList();
         return results;
     }
+
+
     
     
 

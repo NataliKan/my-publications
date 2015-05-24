@@ -1,12 +1,7 @@
 package by.kanchanin.publications.servises;
 
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import javax.inject.Inject;
 
-import org.hibernate.LazyInitializationException;
 import org.junit.Assert;
 import org.junit.Before;
 import org.junit.Test;
@@ -45,9 +40,7 @@ public class CommentServiceTest extends AbstractServiceTest{
         commentService.saveOrUpdate(CommentFromDb);
         Comment commentFromDbUpdated = commentService.get(comment.getId());
 
-        commentService.removeComent(commentFromDbUpdated);
-        Assert.assertNull(commentService.get(comment.getId()));
+
     }
-
-
+    
 }

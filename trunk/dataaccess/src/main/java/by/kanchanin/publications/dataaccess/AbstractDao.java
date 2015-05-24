@@ -14,8 +14,7 @@ public interface AbstractDao<ID, Entity> {
 	void deleteAll();
 	
 	void delete(List<ID> ids);
-	
-	List<Entity> getAllByFieldRestriction(final SingularAttribute<? super Entity, ?> attribute, final Object value);
+
 	
 	void delete(Long id);
 	
@@ -27,6 +26,9 @@ public interface AbstractDao<ID, Entity> {
 	
 	Entity delete(Entity entity);
 	
-	
+	List<Entity> getAllByFieldRestriction(
+			SingularAttribute<? super Entity, ?> attribute, Object value,
+			SingularAttribute<Entity, ?>... fetchAttributes);
+
 	
 }

@@ -49,15 +49,25 @@ public abstract class AbstractDaoImpl<ID, Entity> implements AbstractDao<ID, Ent
 		return entity;
 	}
 	
+	
 	@Override
-	public List<Entity> getAllByFieldRestriction(final SingularAttribute<? super Entity, ?> attribute, final Object value) {
-		Validate.notNull(value, "Search attributes can't be empty. Attribute: " + attribute.getName());
-		final CriteriaBuilder builder = em.getCriteriaBuilder();
-		final CriteriaQuery<Entity> criteria = builder.createQuery(getEntityClass());
+	public List<Entity> getAllByFieldRestriction(
+			final SingularAttribute<? super Entity, ?> attribute,
+			final Object value, SingularAttribute<Entity, ?>... fetchAttributes) {
+		Validate.notNull(value, "Search attributes can't be empty. Attribute: "
+				+ attribute.getName());
+		final CriteriaBuilder cBuilder = getEm().getCriteriaBuilder();
+		final CriteriaQuery<Entity> criteria = cBuilder
+				.createQuery(getEntityClass());
 		final Root<Entity> root = criteria.from(getEntityClass());
-		criteria.select(root).distinct(true);
-		criteria.where(builder.equal(root.get(attribute), value));
-		return em.createQuery(criteria).getResultList();
+
+		criteria.select(root);
+		for (SingularAttribute<Entity, ?> attr : fetchAttributes) {
+			root.fetch(attr);
+		}
+		criteria.distinct(true);
+		criteria.where(cBuilder.equal(root.get(attribute), value));
+		return getEm().createQuery(criteria).getResultList();
 	}
 
 

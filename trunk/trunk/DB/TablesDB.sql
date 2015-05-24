@@ -7,23 +7,13 @@ CREATE TABLE user_account
   last_name text NOT NULL,
   email character varying NOT NULL,
   password character varying,
+  telefone character varying(200),
+  adress character varying(200),
+  credit_card character varying(250),
+  create_date date,
+  user_role text,
   CONSTRAINT user_id PRIMARY KEY (user_id),
   CONSTRAINT email UNIQUE (email)
-);
-
-CREATE TABLE user_profile
-(
-  profile_id serial NOT NULL,
-  adress character varying(200),
-  telefone character varying(200),
-  credit_card character varying(250)[] NOT NULL,
-  create_date date NOT NULL,
-  user_role text NOT NULL,
-  user_id serial NOT NULL,
-  CONSTRAINT profile_id PRIMARY KEY (profile_id),
-  CONSTRAINT user_id FOREIGN KEY (user_id)
-      REFERENCES user_account (user_id) MATCH SIMPLE
-      ON UPDATE NO ACTION ON DELETE NO ACTION
 );
 
 CREATE TABLE company

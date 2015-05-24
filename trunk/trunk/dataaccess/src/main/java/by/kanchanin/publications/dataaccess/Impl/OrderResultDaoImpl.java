@@ -1,5 +1,6 @@
 package by.kanchanin.publications.dataaccess.Impl;
 
+
 import org.springframework.stereotype.Repository;
 
 import by.kanchanin.publications.dataaccess.OrderResultDao;
@@ -11,5 +12,6 @@ public class OrderResultDaoImpl extends AbstractDaoImpl<Long, OrderResult> imple
 	protected OrderResultDaoImpl() {
         super(OrderResult.class);
     }
+
 
 }

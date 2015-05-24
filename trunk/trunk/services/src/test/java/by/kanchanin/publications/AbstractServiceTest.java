@@ -22,7 +22,6 @@ import by.kanchanin.publications.datamodel.Payment;
 import by.kanchanin.publications.datamodel.Periodical;
 import by.kanchanin.publications.datamodel.ShoppingCart;
 import by.kanchanin.publications.datamodel.UserAccount;
-import by.kanchanin.publications.datamodel.UserProfile;
 import by.kanchanin.publications.datamodel.enums.*;
 
 @RunWith(SpringJUnit4ClassRunner.class)
@@ -107,18 +106,13 @@ public abstract class AbstractServiceTest {
         userAccount.setLastName(randomString("lastName-"));
         userAccount.setEmail(randomString("email-"));
         userAccount.setPassword(randomString("password"));
+        userAccount.setAdress(randomString("adress-"));
+        userAccount.setTelefone(randomLong());
+        userAccount.setCreditCard(randomLong());
+        userAccount.setCreated(randomDate());
+        userAccount.setRole(UserRole.administrator);
+        userAccount.setRole(UserRole.client);
         return userAccount;
-    }
-
-    protected UserProfile createUserProfile() {
-        final UserProfile userProfile = new UserProfile();
-        userProfile.setAdress(randomString("adress-"));
-        userProfile.setTelefone(randomLong());
-        userProfile.setCreditCard(randomLong());
-        userProfile.setCreated(randomDate());
-        userProfile.setRole(UserRole.administrator);
-        userProfile.setRole(UserRole.client);
-        return userProfile;
     }
 
     protected Periodical createPeriodical() {

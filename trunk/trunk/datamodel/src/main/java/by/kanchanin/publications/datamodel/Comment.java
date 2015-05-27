@@ -70,9 +70,10 @@ public class Comment  extends AbstractEntity{
 		return periodical;
 	}
 
-	public void setBook(Periodical periodical) {
+	public void setPeriodical(Periodical periodical) {
 		this.periodical = periodical;
 	}
+
 	
 
 }

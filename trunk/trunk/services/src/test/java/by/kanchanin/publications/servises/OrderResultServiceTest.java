@@ -14,6 +14,8 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 
 import by.kanchanin.publications.AbstractServiceTest;
+import by.kanchanin.publications.datamodel.OrderResult;
+import by.kanchanin.publications.datamodel.Periodical;
 import by.kanchanin.publications.services.OrderResultService;
 
 
@@ -30,8 +32,19 @@ public class OrderResultServiceTest extends AbstractServiceTest{
         orderResultService.removeOrderResult(null);
     }
     
-    
-    
-    
+    @Test
+    public void basicCreateTest() {
+		OrderResult orderResult = createOrderResult();
+		orderResultService.updateOrderResult(orderResult);
 
+		OrderResult orderResultFromDb = orderResultService.get(orderResult.getId());
+        Assert.assertNotNull(orderResultFromDb);
+       
+        
+
+    
+    
+    
+    
+    }
 }

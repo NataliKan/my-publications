@@ -25,7 +25,7 @@ public class PeriodicalServiceTest extends AbstractServiceTest{
 	
 	@Before
     public void cleanUpData() {
-        LOGGER.info("Instance of ProductService is injected. Class is: {}", periodicalService.getClass().getName());
+        LOGGER.info("Instance of PeriodicalService is injected. Class is: {}", periodicalService.getClass().getName());
         periodicalService.deleteAll();
     }
 	
@@ -37,6 +37,12 @@ public class PeriodicalServiceTest extends AbstractServiceTest{
 		Periodical periodicalFromDb = periodicalService.get(periodical.getId());
         Assert.assertNotNull(periodicalFromDb);
         Assert.assertEquals(periodicalFromDb.getTitle(), periodical.getTitle());
+        Assert.assertEquals(periodicalFromDb.getPerType(), periodical.getPerType());
+        Assert.assertEquals(periodicalFromDb.getDateOfIssue(), periodical.getDateOfIssue());
+        Assert.assertEquals(periodicalFromDb.getCompany(), periodical.getCompany());
+        Assert.assertEquals(periodicalFromDb.getPrice(), periodical.getPrice());
+        Assert.assertEquals(periodicalFromDb.getAvailable(), periodical.getAvailable());
+        
 
         periodicalFromDb.setTitle("newTitle");
         periodicalService.updatePeriodical(periodicalFromDb);
@@ -59,23 +65,40 @@ public class PeriodicalServiceTest extends AbstractServiceTest{
     }
 	
 	@Test
-    public void searchByTitleTest() {
+	public void searchByTitleTest() {
 		Periodical periodical = createPeriodical();
-        String title = randomString("title-");
-        periodical.setTitle(title);
-        periodicalService.updatePeriodical(periodical);
+		String title = periodical.getTitle();
+		periodicalService.updatePeriodical(periodical);
 
-        Periodical anotherPeriodical = createPeriodical();
-        periodicalService.updatePeriodical(anotherPeriodical);
+		Periodical anotherPeriodical = createPeriodical();
+		periodicalService.updatePeriodical(anotherPeriodical);
 
-        List<Periodical> allProduct = periodicalService.getAllPeriodicals();
-        Assert.assertEquals(allProduct.size(), 2);
+		List<Periodical> allPeriodicals = periodicalService.getAllPeriodicals();
+		Assert.assertEquals(allPeriodicals.size(), 2);
 
-        List<Periodical> allPeriodicalByTitle = periodicalService.getAllPeriodicalsByTitle(title);
-        Assert.assertEquals(allPeriodicalByTitle.size(), 1);
-        Assert.assertEquals(allPeriodicalByTitle.get(0).getId(), periodical.getId());
+		List<Periodical> allPeriodicalsByTitle = periodicalService.getAllPeriodicalsByTitle(title);
+		Assert.assertEquals(allPeriodicalsByTitle.size(), 1);
+		Assert.assertEquals(allPeriodicalsByTitle.get(0).getId(), periodical.getId());
 
-    }
+	}
+
+	@Test
+	public void searchByPerTypeTest() {
+		Periodical periodical = createPeriodical();
+		String perType = periodical.getPerType();
+		periodicalService.updatePeriodical(periodical);
+
+		Periodical anotherPeriodical = createPeriodical();
+		periodicalService.updatePeriodical(anotherPeriodical);
+
+		List<Periodical> allPeriodicals = periodicalService.getAllPeriodicals();
+		Assert.assertEquals(allPeriodicals.size(), 2);
+
+		List<Periodical> allPeriodicalsByPerType = periodicalService.getAllPeriodicalsByPerType(perType);
+		Assert.assertEquals(allPeriodicalsByPerType.size(), 1);
+		Assert.assertEquals(allPeriodicalsByPerType.get(0).getId(), periodical.getId());
+
+	}
 	
 	
 

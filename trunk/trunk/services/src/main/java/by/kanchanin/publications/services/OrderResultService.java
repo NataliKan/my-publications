@@ -15,7 +15,7 @@ public interface OrderResultService {
     OrderResult get(Long id);
 
     @Transactional
-    void updateOrderResult(OrderResult profile);
+    void updateOrderResult(OrderResult orderResult);
 
     @Transactional
     void removeOrderResult(Long id);

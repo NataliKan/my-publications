@@ -6,6 +6,7 @@ import javax.inject.Inject;
 
 import org.junit.After;
 import org.junit.Assert;
+import org.junit.Before;
 import org.junit.Test;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
@@ -24,9 +25,9 @@ public class CompanyServiceTest extends AbstractServiceTest{
     
     private Long id;
     
-    @After
+    @Before
     public void cleanUpData() {
-        LOGGER.info("Instance of ProductService is injected. Class is: {}", companyService.getClass().getName());
+        LOGGER.info("Instance of CompanyService is injected. Class is: {}", companyService.getClass().getName());
         companyService.removeCompany(id);
     }
     
@@ -38,6 +39,7 @@ public class CompanyServiceTest extends AbstractServiceTest{
     	Company companyFromDb = companyService.get(company.getId());
         Assert.assertNotNull(companyFromDb);
         Assert.assertEquals(companyFromDb.getCompanyName(), company.getCompanyName());
+        Assert.assertEquals(companyFromDb.getPeriodical(), company.getPeriodical());
 
         companyFromDb.setCompanyName("newName");
         companyService.updateCompany(companyFromDb);
@@ -49,11 +51,7 @@ public class CompanyServiceTest extends AbstractServiceTest{
         Assert.assertNull(companyService.get(company.getId()));
     }
     
-    @Test
-    public void getAllCompaniesByNameTest () {
-    	
-    }
-    
+ 
     
     
     

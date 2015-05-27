@@ -10,15 +10,13 @@ import javax.persistence.metamodel.SingularAttribute;
 public interface PeriodicalDao extends AbstractDao<Long, Periodical>{
 	
 
-    Long getCount();
+    List<Periodical> getAllPeriodicals(SingularAttribute<Periodical, ?>... fetchAttributes);
 
-    List<Periodical> getAllPeriodicals();
+    List<Periodical> getAllPeriodicalsByTitle(String title,
+			SingularAttribute<Periodical, ?>... fetchAttributes);
 
-    List<Periodical> getAllPeriodicals(SingularAttribute<Periodical, ?> attr, boolean ascending, int startRecord, int pageSize);
-
-    List<Periodical> getAllPeriodicalsByTitle(String title);
-
-    List<Periodical> getAllPeriodicalByPerType(String perType);
+    List<Periodical> getAllPeriodicalByPerType(String perType,
+			SingularAttribute<Periodical, ?>... fetchAttributes);
 
     void updatePeriodicalTitle(Long id, String newTitle);
     

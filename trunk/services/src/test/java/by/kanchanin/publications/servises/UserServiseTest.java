@@ -1,6 +1,5 @@
 package by.kanchanin.publications.servises;
 
-
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Map;
@@ -66,24 +65,24 @@ public class UserServiseTest extends AbstractServiceTest{
 	        userService.createNewUser(duplicateAccount);
 	    }
 
-	  //  @Test
-	   // public void equalityTest() {
-	   //     UserAccount userAccount = createUserAccount();
+	    @Test
+	    public void equalityTest() {
+	        UserAccount userAccount = createUserAccount();
 
-	   //     UserAccount userAccount1 = userService.get(userAccount.getId());
-	   //     UserAccount userAccount2 = userService.get(userAccount.getId());
+	        UserAccount userAccount1 = userService.get(userAccount.getId());
+	       UserAccount userAccount2 = userService.get(userAccount.getId());
 
-	   //     HashSet<UserAccount> hashSet = new HashSet<UserAccount>();
-	    //    hashSet.add(userAccount1);
-	    //    System.out.println("Hashset contains user1: " + hashSet.contains(userAccount1));
-	    //    System.out.println("Hashset contains user2: " + hashSet.contains(userAccount2));
+	       HashSet<UserAccount> hashSet = new HashSet<UserAccount>();
+	       hashSet.add(userAccount1);
+	        System.out.println("Hashset contains user1: " + hashSet.contains(userAccount1));
+	       System.out.println("Hashset contains user2: " + hashSet.contains(userAccount2));
+	       
+	        Map<Long, Object> map = new HashMap<Long, Object>();
+	        map.put(userAccount1.getId(), new Object());
+	        System.out.println("Hashmap contains key1: " + map.containsKey(userAccount1));
+	        System.out.println("Hashmap contains key2: " + map.containsKey(userAccount2));
 
-	     //   Map<Long, Object> map = new HashMap<Long, Object>();
-	    //    map.put(userAccount1.getId(), new Object());
-	     //   System.out.println("Hashmap contains key1: " + map.containsKey(userAccount1));
-	     //   System.out.println("Hashmap contains key2: " + map.containsKey(userAccount2));
-
-	//    }
+	    }
 	    
 	    
 		

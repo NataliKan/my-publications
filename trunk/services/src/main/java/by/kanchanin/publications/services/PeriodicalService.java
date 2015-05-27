@@ -26,13 +26,13 @@ public interface PeriodicalService {
     @Transactional
     void deleteAll();
 
-    List<Periodical> getAllPeriodicals(SingularAttribute<Periodical, ?> sortParam, boolean ascending, int first, int count);
-
     List<Periodical> getAllPeriodicalsByTitle(String title);
     
-    List<Periodical> getAllPeriodicalByPerType(String perType);
+    List<Periodical> getAllPeriodicalsByPerType(String perType);
 
 	List<Periodical> getAllPeriodicals();
+
+	String getRootFolder();
   
 
 

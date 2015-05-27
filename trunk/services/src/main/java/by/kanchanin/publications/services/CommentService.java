@@ -19,10 +19,12 @@ public interface CommentService {
     @Transactional
     void saveOrUpdate(Comment comment);
 
-    @Transactional
-    void removeComment(Long id);
     
     List<Comment> getAllByPeriodical(Periodical periodical);
+
+	void delete(Comment comment);
+
+	void deleteAll();
     
 
 

@@ -38,8 +38,9 @@ public class ShoppingCartServiсeTest extends AbstractServiceTest{
 
 		ShoppingCart shoppingCartFromDb = shoppingCartService.get(shoppingCart.getId());
         Assert.assertNotNull(shoppingCartFromDb);
+        Assert.assertEquals(shoppingCartFromDb.getPeriodical(), shoppingCart.getPeriodical());
+        Assert.assertEquals(shoppingCartFromDb.getUserAccount(), shoppingCart.getUserAccount());
 
-        
         shoppingCartService.update(shoppingCartFromDb);
         ShoppingCart shoppingCartFromDbUpdated = shoppingCartService.get(shoppingCart.getId());
         

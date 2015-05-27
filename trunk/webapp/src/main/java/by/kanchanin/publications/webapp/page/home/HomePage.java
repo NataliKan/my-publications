@@ -7,9 +7,7 @@ import by.kanchanin.publications.services.PeriodicalService;
 import by.kanchanin.publications.webapp.app.BasicAuthenticationSession;
 import by.kanchanin.publications.webapp.page.BaseLayout;
 import by.kanchanin.publications.webapp.page.login.LoginPage;
-import by.kanchanin.publications.webapp.periodical.PeriodicalDetailsPanel;
-import by.kanchanin.publications.webapp.periodical.PeriodicalEditPage;
-import by.kanchanin.publications.webapp.periodical.PeriodicalListPanel;
+
 
 import javax.inject.Inject;
 
@@ -27,41 +25,7 @@ import org.apache.wicket.request.resource.PackageResourceReference;
 
 public class HomePage extends BaseLayout {
 
-//	@Inject
-//	private PeriodicalService periodicalService;
-
-	@Override
-	protected void onInitialize() {
-		super.onInitialize();
-		Injector.get().inject(this);
-
-		if (!BasicAuthenticationSession.get().isSignedIn()) {
-			setResponsePage(LoginPage.class);
-			return;
-		}
-
-//		final List<Periodical> allPeriodicals = periodicalService.getAllPeriodicals();
-//
-//		add(new ListView<Periodical>("details-panel", allPeriodicals) {
-//			@Override
-//			protected void populateItem(ListItem<Periodical> item) {
-//				Periodical periodical = item.getModelObject();
-//				item.add(new Label("id", periodical.getId()).setVisible(false));
-//				boolean isLast = (allPeriodicals.size() - 1) == item.getIndex();
-//				item.add((new PeriodicalDetailsPanel("product-panel", periodical, isLast)));
-//
-//			}
-//
-//		});
-//
-//		add(new Link("create-new-product-link") {
-//			@Override
-//			public void onClick() {
-//				setResponsePage(new PeriodicalEditPage(new Periodical()));
-//			}
-//		});
-//		add(new PeriodicalListPanel("products-list"));
-	}
+	
 
 	protected IModel<String> getPageTitle() {
 		return new ResourceModel("p.home.title");

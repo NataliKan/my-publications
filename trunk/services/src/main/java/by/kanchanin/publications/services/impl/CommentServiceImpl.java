@@ -42,15 +42,7 @@ public class CommentServiceImpl implements CommentService{
 	        }
 	}
 	
-	public void removeComment(Comment comment) {
-		commentDao.delete(comment);
-	}
 
-	@Override
-	public void removeComment(Long id) {
-		// TODO Auto-generated method stub
-		
-	}
 	
 	@Override
 	public List<Comment> getAllByPeriodical(Periodical periodical) {
@@ -58,6 +50,18 @@ public class CommentServiceImpl implements CommentService{
 				Comment_.userAccount);
 	}
 
-}
+	@Override
+	public void delete(Comment comment) {
+		commentDao.delete(comment);
+		
+	}
+
+	@Override
+	public void deleteAll() {
+		LOGGER.debug("Remove all");
+		commentDao.deleteAll();
+	}
+		
+	}
 
 
